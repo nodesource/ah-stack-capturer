@@ -97,12 +97,17 @@ class StackCapturer {
     let i = 0
     // find first occurence
     while (!asyncHooksRx.test(lines[i]) && i < len) i++
+    // We blew past everything and didn't seem to find any async hooks
+    // related part of the stack. Therefore let's include all of it.
+    if (i === len) return lines
+
     // read past last occurence
     while (asyncHooksRx.test(lines[i]) && i < len) i++
 
-    // We blew past everything and didn't seem to find any async hooks
-    // related part of the stack. Therefore let's include all of it.
-    if (i === len) i = 0
+    // We found async_hooks, but nothing that happened before.
+    // Therefore let's just return nothing
+    if (i === len) return []
+
     // don't convert back to string in case the consumer wants
     // to do more with the stack lines
     return lines.slice(i)
