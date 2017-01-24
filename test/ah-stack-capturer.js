@@ -44,10 +44,6 @@ test('\nargument validation', function(t) {
 })
 
 test('\ncaptureStack', function(t) {
-  // Can't test here if async hook parts of stack are properly
-  // removed since that would be complex to setup.
-  // However this module is used inside ah-collector and that detail
-  // should be tested there as part of the ah-collector assertions.
   const capturer = StackCapturer.forAllEvents()
   const stack = capturer.captureStack()
   t.ok(typeof stack, 'string', 'captures stack')
