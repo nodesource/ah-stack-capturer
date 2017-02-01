@@ -1,4 +1,4 @@
-# ah-stack-capturer [![build status](https://secure.travis-ci.org/thlorenz/ah-stack-capturer.png)](http://travis-ci.org/thlorenz/ah-stack-capturer)
+# ah-stack-capturer [![build status](https://secure.travis-ci.org/nodesource/ah-stack-capturer.png)](http://travis-ci.org/nodesource/ah-stack-capturer)
 
 Captures async hook stack traces for specific resource types and events.
 

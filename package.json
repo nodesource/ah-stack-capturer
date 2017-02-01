@@ -8,9 +8,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/thlorenz/ah-stack-capturer.git"
+    "url": "git://github.com/nodesource/ah-stack-capturer.git"
   },
-  "homepage": "https://github.com/thlorenz/ah-stack-capturer",
+  "homepage": "https://github.com/nodesource/ah-stack-capturer",
   "dependencies": {},
   "devDependencies": {
     "tape": "~4.6.3"
@@ -23,7 +23,7 @@
   },
   "license": {
     "type": "MIT",
-    "url": "https://github.com/thlorenz/ah-stack-capturer/blob/master/LICENSE"
+    "url": "https://github.com/nodesource/ah-stack-capturer/blob/master/LICENSE"
   },
   "engine": {
     "node": ">=0.10"
