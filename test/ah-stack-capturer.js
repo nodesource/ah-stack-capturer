@@ -18,6 +18,15 @@ test('\nstack capturer with custom function', function(t) {
   t.end()
 })
 
+test('\nstack capturer with custom function considering activity', function(t) {
+  const custom = new StackCapturer({
+    shouldCapture(event, type, activity) { return event === type && activity === 'a' }
+  })
+  t.ok(custom.shouldCaptureStack('hello', 'hello', 'a'), 'captures when condition met')
+  t.ok(!custom.shouldCaptureStack('hello', 'hello', 'b'), 'does not capture when condition is not met')
+  t.end()
+})
+
 test('\ninit only', function(t) {
   const initOnly = new StackCapturer({ events: new Set([ 'init' ]) })
   t.ok(initOnly.shouldCaptureStack('init', 'some type'), 'captures init event')

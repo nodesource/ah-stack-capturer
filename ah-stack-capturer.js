@@ -14,10 +14,15 @@ class StackCapturer {
    * Either `shouldCapture` OR `events` with optional `types` need to be supplied.
    *
    * @constructor
-   * @params {Object} opts  configures when a stack should be captured
-   * @params {Set.<string>=} opts.events defines on which async hooks events (init|before|after|destroy) a stack should be captured
-   * @params {Set.<string>=} opts.types defines for which async hook types a stack should be captured
-   * @params {function=} opts.shouldCapture if supplied overrides the `shouldCapture` method entirely
+   * @params {Object} $0 configures when a stack should be captured
+   *
+   * @params {Set.<string>=} $0.events defines on which async hooks events
+   * (init|before|after|destroy) a stack should be captured
+   * @params {Set.<string>=} $0.types defines for which async hook types a
+   * stack should be captured
+   *
+   * @params {function=} $0.shouldCapture `function ((event, type, activity)`
+   * if supplied overrides the `shouldCapture` method entirely
    */
   constructor({
       events = null
@@ -55,9 +60,9 @@ class StackCapturer {
    * @param {String} type the type of async resource that triggered the event
    * @return {Boolean} `true` or `false` indicating if a stack should be captured
    */
-  shouldCaptureStack(event, type) {
+  shouldCaptureStack(event, type, activity) {
     // support entirely overriding the shouldCaptureStack function
-    if (this._shouldCapture != null) return this._shouldCapture(event, type)
+    if (this._shouldCapture != null) return this._shouldCapture(event, type, activity)
     // if it wasn't supplied use events and types to determine if we should
     // capture the stack
     if (!this._events.has(event)) return false
