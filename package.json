@@ -1,6 +1,6 @@
 {
   "name": "ah-stack-capturer",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Captures async hook stack traces for specific resource types and events.",
   "main": "ah-stack-capturer.js",
   "scripts": {
