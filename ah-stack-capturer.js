@@ -13,15 +13,18 @@ class StackCapturer {
    * Creates StackCapturere instance.
    * Either `shouldCapture` OR `events` with optional `types` need to be supplied.
    *
-   * @constructor
-   * @params {Object} $0 configures when a stack should be captured
+   * @name StackCapturer
    *
-   * @params {Set.<string>=} $0.events defines on which async hooks events
+   * @constructor
+   * @param {Object} $0 configures when a stack should be captured
+   *
+   * @param {Set.<string>} [$0.events=null] defines on which async hooks events
    * (init|before|after|destroy) a stack should be captured
-   * @params {Set.<string>=} $0.types defines for which async hook types a
+   *
+   * @param {Set.<string>} [$0.types=null] defines for which async hook types a
    * stack should be captured
    *
-   * @params {function=} $0.shouldCapture `function ((event, type, activity)`
+   * @param {function} [$0.shouldCapture=null] `function ((event, type, activity)`
    * if supplied overrides the `shouldCapture` method entirely
    */
   constructor({
